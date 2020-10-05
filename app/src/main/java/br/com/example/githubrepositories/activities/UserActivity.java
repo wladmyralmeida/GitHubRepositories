@@ -1,9 +1,8 @@
 package br.com.example.githubrepositories.activities;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -11,12 +10,6 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
-
-import java.io.IOException;
-import java.io.InputStream;
-import java.net.HttpURLConnection;
-import java.net.MalformedURLException;
-import java.net.URL;
 
 import br.com.example.githubrepositories.helper.ImageDownloader;
 import br.com.example.githubrepositories.models.User;
@@ -76,6 +69,7 @@ public class UserActivity extends AppCompatActivity {
         Call<User> call = apiService.getUser(newString);
         call.enqueue(new Callback<User>() {
 
+            @SuppressLint("SetTextI18n")
             @Override
             public void onResponse(Call<User> call, Response<User>
                     response) {

@@ -37,7 +37,7 @@ public class RepositoriesActivity extends AppCompatActivity {
         recievedUserName = extras.getString("username");
 
         textUserName = findViewById(R.id.textUserName);
-        textUserName.setText("User:" + recievedUserName);
+        textUserName.setText(recievedUserName.toUpperCase());
 
         recyclerViewRepositories = findViewById(R.id.recyclerViewRepositories);
 
