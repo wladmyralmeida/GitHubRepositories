@@ -1,12 +1,15 @@
-package br.com.example.githubrepositories.interfaces;
+package br.com.example.githubrepositories.routes;
 
 import br.com.example.githubrepositories.models.User;
 import retrofit2.Call;
 import retrofit2.http.GET;
 import retrofit2.http.Path;
 
-public interface IUser {
-
+public interface UserRoutes {
     @GET("/users/{user}")
     Call<User> getUser(@Path("user") String user);
 }
+
+
+
+

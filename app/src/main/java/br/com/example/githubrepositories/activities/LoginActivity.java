@@ -1,4 +1,4 @@
-package br.com.example.githubrepositories;
+package br.com.example.githubrepositories.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -7,6 +7,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+
+import br.com.example.githubrepositories.R;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -25,7 +27,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(MainActivity.this, UserActivity.class);
-                intent.putExtra("user_name", editTextUserName.getText().toString());
+                intent.putExtra("username", editTextUserName.getText().toString());
                 startActivity(intent);
             }
         });
