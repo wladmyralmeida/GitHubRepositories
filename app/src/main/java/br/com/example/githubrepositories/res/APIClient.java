@@ -1,4 +1,4 @@
-package br.com.example.githubrepositories.routes;
+package br.com.example.githubrepositories.res;
 
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;

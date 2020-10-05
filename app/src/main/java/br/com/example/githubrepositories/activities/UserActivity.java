@@ -18,15 +18,15 @@ import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
 
+import br.com.example.githubrepositories.helper.ImageDownloader;
 import br.com.example.githubrepositories.models.User;
 import br.com.example.githubrepositories.res.APIClient;
+import br.com.example.githubrepositories.res.UserRoutes;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
 import br.com.example.githubrepositories.R;
-import br.com.example.githubrepositories.res.GitHubUserRoutes;
-
 public class UserActivity extends AppCompatActivity {
     ImageView avatarImg;
     TextView userNameTV;
@@ -69,36 +69,9 @@ public class UserActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
-    public class ImageDownloader extends AsyncTask<String, Void, Bitmap> {
-        @Override
-        protected Bitmap doInBackground(String... urls) {
-
-            try {
-
-                URL url = new URL(urls[0]);
-                HttpURLConnection connection = (HttpURLConnection) url.openConnection();
-                connection.connect();
-                InputStream inputStream = connection.getInputStream();
-                Bitmap myBitmap = BitmapFactory.decodeStream(inputStream);
-                return myBitmap;
-
-            } catch (MalformedURLException e) {
-
-                e.printStackTrace();
-
-            } catch (IOException e) {
-
-                e.printStackTrace();
-
-            }
-            return null;
-        }
-    }
-
-
     public void loadData() {
-        final GitHubUserRoutes apiService =
-                APIClient.getClient().create(GitHubUserRoutes.class);
+        final UserRoutes apiService =
+                APIClient.getClient().create(UserRoutes.class);
 
         Call<User> call = apiService.getUser(newString);
         call.enqueue(new Callback<User>() {

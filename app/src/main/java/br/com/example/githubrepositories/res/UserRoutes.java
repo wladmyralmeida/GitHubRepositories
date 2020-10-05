@@ -1,4 +1,4 @@
-package br.com.example.githubrepositories.routes;
+package br.com.example.githubrepositories.res;
 
 import br.com.example.githubrepositories.models.User;
 import retrofit2.Call;

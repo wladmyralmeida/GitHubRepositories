@@ -19,7 +19,7 @@ public class User {
     @SerializedName("following")
     private String following;
 
-    @SerializedName("avatar")
+    @SerializedName("avatar_url")
     private String avatar;
 
     public User(String email, String login, String name, String followers, String following, String avatar) {

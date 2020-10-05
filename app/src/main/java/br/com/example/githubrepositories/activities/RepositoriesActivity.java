@@ -14,8 +14,8 @@ import java.util.List;
 import br.com.example.githubrepositories.R;
 import br.com.example.githubrepositories.adapter.RepositoryAdapter;
 import br.com.example.githubrepositories.models.Repository;
-import br.com.example.githubrepositories.res.GitHubRepositoryRoutes;
-import br.com.example.githubrepositories.services.ApiClient;
+import br.com.example.githubrepositories.res.APIClient;
+import res.RepositoryRoutes;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -50,9 +50,9 @@ public class RepositoriesActivity extends AppCompatActivity {
     }
 
     private void loadRepositories() {
-        GitHubRepositoryRoutes apiService = ApiClient.getApiClient().create(GitHubRepositoryRoutes.class);
+        RepositoryRoutes apiService = APIClient.getClient().create(RepositoryRoutes.class);
 
-        Call<List<Repository>> callRepositoriesList = apiService.getRepository(recievedUserName);
+        Call<List<Repository>> callRepositoriesList = apiService.getRepo(recievedUserName);
         callRepositoriesList.enqueue(new Callback<List<Repository>>() {
             @Override
             public void onResponse(Call<List<Repository>> call, Response<List<Repository>> response) {

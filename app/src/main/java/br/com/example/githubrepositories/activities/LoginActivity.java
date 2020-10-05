@@ -10,7 +10,7 @@ import android.widget.EditText;
 
 import br.com.example.githubrepositories.R;
 
-public class MainActivity extends AppCompatActivity {
+public class LoginActivity extends AppCompatActivity {
 
     private EditText editTextUserName;
     private Button btnLogin;
@@ -18,18 +18,16 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_login);
 
         editTextUserName = findViewById(R.id.input_username);
         btnLogin = findViewById(R.id.btn_login);
+    }
 
-        btnLogin.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(MainActivity.this, UserActivity.class);
-                intent.putExtra("username", editTextUserName.getText().toString());
-                startActivity(intent);
-            }
-        });
+    public void getUser(View view) {
+
+        Intent i = new Intent(LoginActivity.this, UserActivity.class);
+        i.putExtra("STRING_I_NEED", editTextUserName.getText().toString());
+        startActivity(i);
     }
 }
